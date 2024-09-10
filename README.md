@@ -26,7 +26,7 @@ const newSecret = twofactor.generateSecret({ name: "My Awesome App", account: "j
 /*
 { secret: 'XDQXYCP5AC6FA32FQXDGJSPBIDYNKK5W',
   uri: 'otpauth://totp/My%20Awesome%20App:johndoe?secret=XDQXYCP5AC6FA32FQXDGJSPBIDYNKK5W&issuer=My%20Awesome%20App',
-  qr: 'https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=otpauth://totp/My%20Awesome%20App:johndoe%3Fsecret=XDQXYCP5AC6FA32FQXDGJSPBIDYNKK5W%26issuer=My%20Awesome%20App'
+  qr: 'https://api.qrserver.com/v1/create-qr-code/?size=166x166&data=otpauth://totp/My%20Awesome%20App:johndoe%3Fsecret=XDQXYCP5AC6FA32FQXDGJSPBIDYNKK5W%26issuer=My%20Awesome%20App'
 }
 */
 
@@ -44,7 +44,7 @@ twofactor.verifyToken("XDQXYCP5AC6FA32FQXDGJSPBIDYNKK5W", "00");
 
 ### generateSecret(options)
 
-returns an object containing a 32-character secret (keep user specific, store in DB), a uri (if you want to make your own QR / barcode) and a direct link to a QR code served via HTTPS by the Google Chart API
+returns an object containing a 32-character secret (keep user specific, store in DB), a uri (if you want to make your own QR / barcode) and a direct link to a QR code served via HTTPS by the QR code API (https://goqr.me/api/)
 
 options is an object containing `name` which is the name of your app that will show up when the user scans the QR code and `account` which can be the username and will also show up in the user's app. Both parameters are optional
 
